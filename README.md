@@ -287,7 +287,8 @@ Coverage:
 - **Functional interfaces** for use cases (extending `java.util.function.Function`).  
 - **JWT** stored in DB and renewed at login.  
 - **Password rules enforced** via regex in `application.yml`.  
-- **MapStruct + Lombok** for cleaner, maintainable code.  
+- **MapStruct + Lombok** for cleaner, maintainable code.
+- **The component and sequence diagrams have been included in the app as images (Components, Login, SignUp).**
 
 ---
 
@@ -304,3 +305,4 @@ Coverage:
 This project is unlicensed. Add a [LICENSE](LICENSE) file (MIT recommended) if you plan to share publicly.
 
 ---
+
