@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "58e9bc6d-2f12-4f44-8d6d-635def9a6159",
+		"name": "BCI GlobalLogic Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43391650",
+		"_collection_link": "https://kevinpineda-9356974.postman.co/workspace/Kevin-Pineda's-Workspace~d7b3ce28-66b8-431b-8e47-b502a80817d2/collection/43391650-58e9bc6d-2f12-4f44-8d6d-635def9a6159?action=share&source=collection_link&creator=43391650"
+	},
+	"item": [
+		{
+			"name": "Sign up OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"authTokenBCI\", jsonData.token);\r",
+							"console.log(\"Token guardado:\", jsonData.token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test Test\",\r\n    \"email\": \"test@example.com\",\r\n    \"password\": \"abcdxyzW45\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"123456789\",\r\n            \"cityCode\": \"11\",\r\n            \"countryCode\": \"+54\"\r\n        },\r\n        {\r\n            \"number\": \"987654321\",\r\n            \"cityCode\": \"34\",\r\n            \"countryCode\": \"+1\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sign-up"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/journey \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\r\n  \"id\": 1,\r\n  \"people\": 4\r\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJrZXZpbi5waW5lZGFAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTc4NzMzMzcsImV4cCI6MTc1Nzg3NjkzN30.9_nbpFXK9R86rzhdgfTGnmBUY97SA4zgADiO2xeKggc"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/login' \\\r\n--header 'Content-Type: application/json' \\\r\n--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9....'\r\n"
+			},
+			"response": []
+		}
+	]
+}
